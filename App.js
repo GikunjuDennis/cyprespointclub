@@ -1,20 +1,19 @@
 const express = require("express");
 const path = require("path");
 const mysql = require("mysql");
-const hbs = require("express-handlebars");
 
 const app = express();
 
   const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'password',
+    password: '81911918',
     database: 'cypresspointclub',
   });
 
   db.connect((error) => {
     if (error) {
-      //console.log(Error);
+      console.log(Error);
     } else {
       console.log("MySQL Connected...");
     }
@@ -25,16 +24,7 @@ const app = express();
    express.urlencoded({
      extended: false,
    })
- );
-
-  //view engine setup
-app.engine('hbs', hbs({
-  extname: 'hbs',
-  defaultLayout: 'layout',
-  //layoutDir: __dirname + '/views/layouts'
-})); //extname specifies extension of files
-app.set("views", path.join(__dirname, "views"));
-app.set('view engine', 'hbs');
+ )
 
  //Parse JSON bodies as sent by API clients
 app.use(express.json());
